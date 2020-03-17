@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>已完成验证</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        body{
+            background: url("./imgs/2.jpeg") no-repeat;
+            background-size: 100%;
+        }
+        .info{
+            margin-top: 600px;
+            text-align: center;
+            color: #2F4056;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="info">
+    <div id="tipdata">本产品于</div>
+    <div>已经完成产品认证</div>
+</div>
+<script>
+    var data = decodeURI(getQueryVariable("data"));
+    document.getElementById("tipdata").append(data+"(KST)")
+    function getQueryVariable(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+</script>
+</body>
+</html>

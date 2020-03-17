@@ -1,0 +1,150 @@
+@charset "utf-8";
+/*variables css*/
+/*mixin css*/
+/*adapter css*/
+@media (min-width: 320px) {
+  html {
+    font-size: 42.66666667px;
+  }
+}
+@media (min-width: 360px) {
+  html {
+    font-size: 48px;
+  }
+}
+@media (min-width: 375px) {
+  html {
+    font-size: 50px;
+  }
+}
+@media (min-width: 384px) {
+  html {
+    font-size: 51.2px;
+  }
+}
+@media (min-width: 400px) {
+  html {
+    font-size: 53.33333333px;
+  }
+}
+@media (min-width: 414px) {
+  html {
+    font-size: 55.2px;
+  }
+}
+@media (min-width: 424px) {
+  html {
+    font-size: 56.53333333px;
+  }
+}
+@media (min-width: 480px) {
+  html {
+    font-size: 64px;
+  }
+}
+@media (min-width: 540px) {
+  html {
+    font-size: 72px;
+  }
+}
+@media (min-width: 640px) {
+  html {
+    font-size: 85.33333333px;
+  }
+}
+@media (min-width: 720px) {
+  html {
+    font-size: 96px;
+  }
+}
+@media (min-width: 750px) {
+  html {
+    font-size: 100px;
+  }
+}
+/*model css*/
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+  font-family: "微软雅黑", sans-serif;
+}
+/*main css*/
+html,
+body {
+  height: 100%;
+  background: #1c2550;
+}
+body {
+  background: url(../imgs/4.jpeg) no-repeat;
+
+  background-size: 100% ;
+}
+#wrap {
+  width: 100%;
+  max-width: 750px;
+  min-width: 320px;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 8.2rem;
+}
+#wrap input {
+  width: 0.9rem;
+  height: 0.9rem;
+  outline: none;
+  border-radius: 0.2rem;
+  text-align: center;
+  margin: 0 0.06rem;
+}
+#wrap form {
+  margin-top: 2.6rem;
+}
+#wrap span {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  background-color: #000;
+  box-shadow: 0.02rem 0.02rem 0.08rem #fff;
+  vertical-align: middle;
+  border-radius: 0.2rem;
+  margin: 0 0.06rem;
+}
+#wrap p.btn {
+  font-size: 0.45rem;
+  width: 40%;
+  height: 1rem;
+  line-height: 1rem;
+  margin: 0 auto;
+  margin-top: 1.3rem;
+  border: none;
+  border-radius: 0.8rem;
+  background-color: #D8D8DF;
+}
+#two {
+  display: none;
+}
+.pictrue {
+  background: url(../imgs/3.jpeg) no-repeat;
+  background-size: 100% 100%;
+}
+/*iphoneX*/
+.iphoneX {
+  margin-top: 1.8rem !important;
+}
+/*iPad*/
+.ipad {
+  margin-top: -2rem !important;
+  margin-top: 1.3rem;
+}
+.ipad_btn {
+  margin-top: 0.9rem !important;
+}
+/*Pixel 2 XL*/
+.PixelXL {
+  margin-top: 1.8rem !important;
+}

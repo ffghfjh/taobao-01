@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+		<title>MLB品牌验证激活</title>
+		<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<div id="wrap">
+			<form action="" meth>
+				<div id="one">
+					<input type="text" maxlength="1" name="" id="oneCode" value="" />
+					<input type="text" maxlength="1" name="" id="twoCode" value="" />
+					<span></span>
+					<span></span>
+				</div>
+				<div id="two">
+					<span></span>
+					<span></span>
+					<input type="text" maxlength="1" name="" id="threeCode" value="" />
+					<input type="text" maxlength="1" name="" id="fourCode" value="" />
+				</div>
+				<p id="btn" class="btn">提交</p>
+
+			</form>
+		</div>
+		<script type="text/javascript">
+
+
+			function iphoneX(){
+				return /iphone/gi.test(navigator.userAgent) && (screen.height == 812 && screen.width == 375)
+			}
+
+			function PixelXL(){
+				return (screen.height == 823 && screen.width == 411)
+			}
+
+			(function(){
+				if(iphoneX()){
+					document.getElementById("wrap").classList.add('iphoneX');
+				}else if(navigator.userAgent.indexOf("iPad") != -1){
+					document.getElementById("wrap").classList.add('ipad');
+					document.getElementById("btn").classList.add('ipad_btn');
+				}else if(PixelXL()){
+					document.getElementById("wrap").classList.add('PixelXL');
+				}
+				else{
+				}
+			})();
+
+
+			var isuse = true;
+			var btn = document.getElementById("btn");
+			var flag = true;
+			btn.addEventListener("click", function(){
+				var one = document.getElementById("oneCode").value;
+				var two = document.getElementById("twoCode").value;
+				if(flag){
+					document.getElementById("one").style.display = "none";
+					document.getElementById("two").style.display = "block";
+
+					if(one==null||one==""||two==null||two==""){
+						alert("请输入完全")
+						return;
+					}
+					flag = false;
+				}else{
+					var three = document.getElementById("threeCode").value;
+					var four = document.getElementById("fourCode").value;
+					document.getElementById("one").style.display = "block";
+					document.getElementById("two").style.display = "none";
+
+					if(three==null||three==""||four==null||four==""){
+						alert("请输入完全")
+						return;
+					}
+					console.log(one+","+two+","+three+","+four)
+                    $.ajax({
+						url:"search",
+						data:{
+							"one":one,
+							"two":two,
+							"three":three,
+							"four":four
+						},
+						success:function (data) {
+							if(data.code==0){
+								alert("验证失败")
+							}
+							if(data.code == 1){
+
+								window.location.href="success.html"
+							}
+							if(data.code==2){
+								console.log("重复验证："+data.data)
+								window.location.href="resuccess.html?data="+encodeURI(data.data);
+							}
+						}
+					})
+					flag = true;
+				}
+			},false);
+
+		</script>
+
+	</body>
+</html>

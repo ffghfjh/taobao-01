@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置</title>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<h3>第一位</h3>
+<div>
+    <label>最小值</label>
+    <input id="min1" type="text"/>
+    <label>最大值</label>
+    <input id="max1" ype="text"/>
+    <input type="button" onclick="setFanWei1()" value="提交">
+</div>
+<h3>第二位</h3>
+<div>
+    <label>最小值</label>
+    <input id="min2" type="text"/>
+    <label>最大值</label>
+    <input id="max2" type="text"/>
+    <input type="button" onclick="setFanWei2()" value="提交">
+</div>
+<h3>第三位</h3>
+<div>
+    <label>最小值</label>
+    <input id="min3" type="text"/>
+    <label>最大值</label>
+    <input id="max3" type="text"/>
+    <input type="button" onclick="setFanWei3()" value="提交">
+</div>
+<h3>第四位</h3>
+<div>
+    <label>最小值</label>
+    <input id="min4" type="text"/>
+    <label>最大值</label>
+    <input id="max4" type="text"/>
+    <input type="button" onclick="setFanWei4()" value="提交">
+</div>
+<h3>添加校验码</h3>
+<input id="code1" type="text">
+<br>
+<input id="code2" type="text">
+<br>
+<input id="code3" type="text">
+<br>
+<input id="code4" type="text">
+<br>
+<input onclick="addCode()" type="button" value="提交">
+<br>
+<br>
+<div>
+    <input type="button" value="一键清空" onclick="deleteAll()">
+</div>
+<script>
+
+    function deleteAll() {
+
+        $.ajax({
+            url:"deleteAll",
+            method:'get',
+            success:function (data) {
+                if(data.code == 1){
+                    alert('清空成功')
+                }else {
+                    alert('清空失败')
+                }
+            }
+        })
+
+    }
+    function setFanWei1() {
+        var min = $("#min1").val();
+        var max = $("#max1").val();
+        $.ajax({
+            url:"setFanWei",
+            method:"post",
+            data:{
+                "min":min,
+                "max":max,
+                "type":1
+            },
+            success:function (data) {
+                alert("修改成功")
+            }
+        })
+
+
+    }
+    function setFanWei4() {
+        var min = $("#min4").val();
+        var max = $("#max4").val();
+        $.ajax({
+            url:"setFanWei",
+            method:"post",
+            data:{
+                "min":min,
+                "max":max,
+                "type":4
+            },
+            success:function (data) {
+                alert("修改成功")
+            }
+        })
+
+
+    }
+    function setFanWei2() {
+        var min = $("#min2").val();
+        var max = $("#max2").val();
+        $.ajax({
+            url:"setFanWei",
+            method:"post",
+            data:{
+                "min":min,
+                "max":max,
+                "type":2
+            },
+            success:function (data) {
+                alert("修改成功")
+            }
+        })
+
+
+    }
+    function setFanWei3() {
+        var min = $("#min3").val();
+        var max = $("#max3").val();
+        $.ajax({
+            url:"setFanWei",
+            method:"post",
+            data:{
+                "min":min,
+                "max":max,
+                "type":3
+            },
+            success:function (data) {
+                alert("修改成功")
+            }
+        })
+    }
+    function addCode() {
+        var one = $("#code1").val();
+        var two = $("#code2").val();
+        var three = $("#code3").val();
+        var four = $("#code4").val();
+        $.ajax({
+            url:"addCode",
+            method:"post",
+            data:{
+                "one":one,
+                "two":two,
+                "three":three,
+                "four":four
+            },
+            success:function (data) {
+                alert(data.msg)
+            }
+        })
+    }
+</script>
+</body>
+</html>
